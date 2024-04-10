@@ -2,7 +2,7 @@
 defineProps({
 	phone: String,
 })
-//+7(929) 278-22-55
+
 </script>
 
 <template>

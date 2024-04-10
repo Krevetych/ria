@@ -29,14 +29,5 @@ onMounted(() => {
 </script>
 
 <template>
-	<div class="flex flex-col gap-y-3 items-center">
-		<p>Welcome, {{ userData.login }}</p>
-		<p>Your data: {{ userData.fullName }}</p>
-		<button
-			@click="logout"
-			class="border-solid border-2 border-primary w-fit rounded-lg px-2 py-1 active:bg-primary active:text-white"
-		>
-			Logout
-		</button>
-	</div>
+	<p class="text-2xl">courses page</p>
 </template>

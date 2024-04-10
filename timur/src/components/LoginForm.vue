@@ -1,19 +1,30 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { fakerRU as faker } from '@faker-js/faker'
 import BaseButton from './BaseButton.vue'
 
 const router = useRouter()
 
 const formData = reactive({
+	fullName: faker.person.fullName(),
 	login: '',
 	password: '',
 })
 
 const submitForm = () => {
 	localStorage.setItem('userData', JSON.stringify(formData))
-	router.replace('/profile')
+	router.replace('/courses')
 }
+
+onMounted(() => {
+	const storedUserData = localStorage.getItem('userData')
+	if (storedUserData) {
+		router.push('/courses')
+	} else {
+		router.push('/')
+	}
+})
 </script>
 
 <template>
