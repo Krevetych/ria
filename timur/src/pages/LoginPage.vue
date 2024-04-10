@@ -3,5 +3,7 @@ import LoginForm from '../components/LoginForm.vue'
 </script>
 
 <template>
-	<LoginForm />
+	<div class="flex flex-col justify-center h-[80vh]">
+		<LoginForm />
+	</div>
 </template>

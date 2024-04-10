@@ -6,12 +6,18 @@ import App from './App.vue'
 import LoginPage from './pages/LoginPage.vue'
 import NotFoundPage from './pages/NotFoundPage.vue'
 import СoursesPage from './pages/СoursesPage.vue'
+import ModulePage from './pages/ModulePage.vue'
 
 const app = createApp(App)
 
 const routes = [
 	{ path: '/', name: 'Login', component: LoginPage },
-	{ path: '/courses', name: 'Courses', component: СoursesPage },
+	{
+		path: '/courses',
+		name: 'Courses',
+		component: СoursesPage,
+	},
+	{ path: '/courses/:id', component: ModulePage },
 	{ path: '/:pathMatch(.*)*', name: 'NotFoundPage', component: NotFoundPage },
 ]
 

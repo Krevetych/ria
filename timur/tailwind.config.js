@@ -5,6 +5,7 @@ export default {
 		extend: {
 			colors: {
 				primary: '#EF7F1A',
+				card: '#F5F5F5',
 			},
 		},
 	},

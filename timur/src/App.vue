@@ -26,8 +26,7 @@ window.addEventListener('resize', () => {
 		<p>Error code: E01</p>
 	</div>
 	<BaseHeader />
-	<div class="flex flex-col justify-center h-[80vh]">
-		<router-view></router-view>
-	</div>
+
+	<router-view></router-view>
 	<BaseFooter />
 </template>
