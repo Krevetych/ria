@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
-    "@formkit/auto-animate": "^0.8.1",
     "vue": "^3.4.21",
     "vue-router": "4"
   },
