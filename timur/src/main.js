@@ -5,6 +5,7 @@ import App from './App.vue'
 import LoginPage from './pages/LoginPage.vue'
 import NotFoundPage from './pages/NotFoundPage.vue'
 import СoursesPage from './pages/СoursesPage.vue'
+import ThemaPage from './pages/ThemaPage.vue'
 
 const app = createApp(App)
 
@@ -14,6 +15,11 @@ const routes = [
 		path: '/courses',
 		name: 'Courses',
 		component: СoursesPage,
+	},
+	{
+		path: '/courses/:id',
+		name: 'Courses themas',
+		component: ThemaPage,
 	},
 	{ path: '/:pathMatch(.*)*', name: 'NotFoundPage', component: NotFoundPage },
 ]

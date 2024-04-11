@@ -1,7 +1,9 @@
 <script setup>
-import { reactive, ref, onMounted } from 'vue'
+import { reactive, ref, onMounted, inject } from 'vue'
 import { useRouter } from 'vue-router'
 import BaseCourseCard from '../components/BaseCourseCard.vue'
+
+const { completionPercentage } = inject('update')
 
 const userData = reactive({
 	fullName: '',
@@ -16,42 +18,36 @@ const router = useRouter()
 const items = [
 	{
 		header: {
-			title: 'Название модуля 1',
-			desc: 'Краткое описание курса',
-			status: 'в процессе',
-			percent: '63',
+			title: 'Обучающий модуль №1.',
+			desc: 'Краткое описание курса не найдено',
+			status: completionPercentage.value == 100 ? 'пройден' : 'в процессе',
+			percent:
+				completionPercentage.value >= 100
+					? '100'
+					: completionPercentage.value.toFixed(1),
 			disabled: false,
 		},
 		content: [
 			{
 				id: '1.1.',
-				title: 'Название темы 1',
+				title:
+					'Учебный фильм: «Обязанности водителей и ответственность водителя»',
 				status: 'пройден',
 				link: '3a7b9f1c',
 			},
 			{
 				id: '1.2.',
-				title: 'Название темы 2',
-				status: 'в процессе',
+				title:
+					'Презентация: «Обязанности водителей и ответственность водителя»',
+				status: 'не начат',
 				link: 'e5d2a8f7',
 			},
 			{
 				id: '1.3.',
-				title: 'Название темы 3',
+				title:
+					'Тест по теме: «Обязанности водителей и ответственность водителя»',
 				status: 'не начат',
 				link: '6b4f1e9d',
-			},
-			{
-				id: '1.4.',
-				title: 'Название темы 4',
-				status: 'не начат',
-				link: 'a3c8f7b2',
-			},
-			{
-				id: '1.5.',
-				title: 'Название темы 5',
-				status: 'не начат',
-				link: '9d1e6b4f',
 			},
 		],
 	},
@@ -72,7 +68,7 @@ const items = [
 			desc: 'Краткое описание курса',
 			status: 'не начат',
 			percent: '',
-			disabled: false,
+			disabled: true,
 		},
 
 		content: { title: 'Пусто' },
@@ -83,7 +79,7 @@ const items = [
 			desc: 'Краткое описание курса',
 			status: 'не начат',
 			percent: '',
-			disabled: false,
+			disabled: true,
 		},
 
 		content: { title: 'Пусто' },
@@ -94,7 +90,7 @@ const items = [
 			desc: 'Краткое описание курса',
 			status: 'не начат',
 			percent: '',
-			disabled: false,
+			disabled: true,
 		},
 		content: { title: 'Пусто' },
 	},

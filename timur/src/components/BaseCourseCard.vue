@@ -10,8 +10,8 @@ defineProps({
 
 <template>
 	<div
-		class="flex flex-col gap-y-2 rounded-lg shadow-lg px-4 py-2 m-2 border-solid border-2 border-slate-300 bg-white"
-		:class="item.header.disabled ? 'bg-card' : ''"
+		class="flex flex-col gap-y-2 rounded-lg shadow-lg px-4 py-2 m-2 border-solid border-2 border-slate-300"
+		:class="item.header.disabled ? 'bg-card' : 'bg-white'"
 	>
 		<p class="text-xl font-semibold text-primary">{{ item.header.title }}</p>
 		<div>
@@ -32,7 +32,10 @@ defineProps({
 			</div>
 		</div>
 	</div>
-	<div v-if="activeItem === index" v-for="cours in item.content">
+	<div
+		v-if="activeItem === index && !item.header.disabled"
+		v-for="cours in item.content"
+	>
 		<div
 			v-if="cours == 'Пусто'"
 			class="flex flex-col rounded-lg shadow-lg px-4 py-2 m-2 ml-7 border-solid border-2 border-slate-300 bg-white"

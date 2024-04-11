@@ -1,9 +1,19 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, provide } from 'vue'
+import { useRouter } from 'vue-router'
 import BaseHeader from './components/BaseHeader.vue'
 import BaseFooter from './components/BaseFooter.vue'
 
 const windowWidth = ref(window.innerWidth)
+
+const router = useRouter()
+
+const completionPercentage = ref(0)
+
+const updateCompletion = percentage => {
+	completionPercentage.value += percentage
+	router.push('/courses')
+}
 
 const isDeviceSizeExceedsPhone = computed(() => {
 	return windowWidth.value > 768
@@ -11,6 +21,11 @@ const isDeviceSizeExceedsPhone = computed(() => {
 
 window.addEventListener('resize', () => {
 	windowWidth.value = window.innerWidth
+})
+
+provide('update', {
+	updateCompletion,
+	completionPercentage,
 })
 </script>
 
