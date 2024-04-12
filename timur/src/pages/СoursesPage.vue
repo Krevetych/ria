@@ -1,11 +1,9 @@
 <script setup>
-import { reactive, ref, onMounted, inject } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 import BaseCourseCard from '../components/BaseCourseCard.vue'
 import BaseButton from '../components/BaseButton.vue'
-
-const { completionPercentage } = inject('update')
 
 const userData = reactive({
 	fullName: '',
@@ -14,7 +12,8 @@ const userData = reactive({
 })
 
 const activeItem = ref(null)
-const items = ref([])
+
+const items = reactive([])
 
 const router = useRouter()
 
@@ -34,18 +33,15 @@ const toggleAccordion = index => {
 	}
 }
 
-//const fetchItems = async () => {
-//	try {
-//		const { data } = axios.get('https://a44683b5bad1089d.mokky.dev/courses')
-//		items.value = data.map(obj => ({
-//			...obj,
-//			percent: completionPercentage,
-//		}))
-//		console.log(items)
-//	} catch (error) {
-//		console.log(error)
-//	}
-//}
+const fetchItems = async () => {
+	try {
+		axios.get('https://a44683b5bad1089d.mokky.dev/courses').then(res => {
+			items.push(...res.data)
+		})
+	} catch (error) {
+		console.log(error)
+	}
+}
 
 onMounted(async () => {
 	await fetchItems()

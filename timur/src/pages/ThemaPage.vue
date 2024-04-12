@@ -1,9 +1,13 @@
 <script setup>
-import { inject } from 'vue'
+import { useRouter } from 'vue-router'
 
-const { updateCompletion } = inject('update')
+const router = useRouter()
+
+const toHome = () => {
+	router.push('/courses')
+}
 </script>
 
 <template>
-	<button @click="updateCompletion(100 / 3)">OK</button>
+	<button @click="toHome">OK</button>
 </template>
