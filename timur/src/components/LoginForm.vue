@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, onMounted } from 'vue'
+import axios from 'axios'
 import { useRouter } from 'vue-router'
 import { fakerRU as faker } from '@faker-js/faker'
 import BaseButton from './BaseButton.vue'
@@ -12,9 +13,14 @@ const formData = reactive({
 	password: '',
 })
 
-const submitForm = () => {
-	localStorage.setItem('userData', JSON.stringify(formData))
-	router.replace('/courses')
+const submitForm = async () => {
+	try {
+		await axios.post('https://a44683b5bad1089d.mokky.dev/login', formData)
+		localStorage.setItem('userData', JSON.stringify(formData))
+		router.replace('/courses')
+	} catch (error) {
+		console.log(error)
+	}
 }
 
 onMounted(() => {
