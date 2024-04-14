@@ -1,6 +1,5 @@
 <script setup>
-import { ref, computed, provide } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, computed } from 'vue'
 import BaseHeader from './components/BaseHeader.vue'
 import BaseFooter from './components/BaseFooter.vue'
 
@@ -13,7 +12,6 @@ const isDeviceSizeExceedsPhone = computed(() => {
 window.addEventListener('resize', () => {
 	windowWidth.value = window.innerWidth
 })
-
 </script>
 
 <template>

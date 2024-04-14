@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage.vue'
 import NotFoundPage from './pages/NotFoundPage.vue'
 import СoursesPage from './pages/СoursesPage.vue'
 import ThemaPage from './pages/ThemaPage.vue'
+import UploadFilePage from './pages/temporarily/UploadFilePage.vue'
 
 const app = createApp(App)
 
@@ -20,6 +21,12 @@ const routes = [
 		path: '/courses/:id',
 		name: 'Courses themas',
 		component: ThemaPage,
+	},
+	{
+		path: '/upload',
+		redirect: '/courses',
+		name: 'Upload',
+		component: UploadFilePage,
 	},
 	{ path: '/:pathMatch(.*)*', name: 'NotFoundPage', component: NotFoundPage },
 ]
