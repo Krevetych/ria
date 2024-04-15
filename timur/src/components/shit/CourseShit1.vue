@@ -11,8 +11,5 @@ import BaseButton from '../BaseButton.vue'
 			src="/video.mp4"
 			style="border-radius: 10px"
 		/>
-		<router-link to="/courses/e5d2a8f7" class="text-end">
-			<BaseButton title="Далее" styles="bg-primary text-white" />
-		</router-link>
 	</div>
 </template>
