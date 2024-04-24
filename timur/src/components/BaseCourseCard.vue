@@ -60,12 +60,12 @@ onMounted(async () => {
 		<p class="text-xl font-semibold text-primary">{{ item.title }}</p>
 		<div>
 			<p>{{ item.desc }}</p>
-			<div class="flex justify-between items-center">
+			<div class="flex justify-between items-center text-gray-400">
 				<p>
 					Статус:
-					<span class="font-semibold text-primary">{{ item.status }}</span>
+					<span class="font-semibold">soon</span>
 				</p>
-				<p v-if="item.status != 'не начат'" class="text-primary font-semibold">
+				<p v-if="item.status != 'не начат'" class="font-semibold">
 					{{ item.percent.toFixed(1) }}%
 				</p>
 			</div>
@@ -90,9 +90,9 @@ onMounted(async () => {
 			<router-link :to="/courses/ + cours.link">
 				<p class="font-semibold">{{ cours.id_thema }} {{ cours.title }}</p>
 			</router-link>
-			<p>
+			<p class="text-gray-400">
 				Статус:
-				<span class="font-semibold text-primary">{{ cours.status }}</span>
+				<span class="font-semibold">soon</span>
 			</p>
 		</div>
 	</div>

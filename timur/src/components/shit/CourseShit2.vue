@@ -15,5 +15,13 @@ import BaseButton from '../BaseButton.vue'
 				style="border-radius: 10px"
 			/>
 		</div>
+		<div class="flex items-center justify-between">
+			<router-link to="/courses/3a7b9f1c">
+				<BaseButton title="Назад" />
+			</router-link>
+			<router-link to="/courses/6b4f1e9d">
+				<BaseButton title="Далее" styles="bg-primary text-white" />
+			</router-link>
+		</div>
 	</div>
 </template>

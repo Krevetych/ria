@@ -75,5 +75,13 @@ onMounted(async () => {
 				</p>
 			</div>
 		</div>
+		<div class="flex items-center justify-between">
+			<router-link to="/courses/e5d2a8f7">
+				<BaseButton title="Назад" />
+			</router-link>
+			<router-link to="/courses">
+				<BaseButton title="Завершить" styles="bg-primary text-white" />
+			</router-link>
+		</div>
 	</div>
 </template>
